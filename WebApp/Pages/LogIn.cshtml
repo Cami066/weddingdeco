@@ -1,0 +1,68 @@
+﻿@page
+@model WebApp.Pages.LoginModel
+
+@*@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+<form method="post" class="form-container">
+    <div class="mb-3">
+        <input type="email" asp-for="Email" class="form-control" placeholder="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <input type="password" asp-for="Password" class="form-control" placeholder="Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="button-container">
+        <button type="submit" class="btn btn-submit">Log In</button>
+    </div>
+</form>*@
+
+<style>
+    .form-container {
+        width: 491px;
+        height: 481px;
+        margin: 0 auto;
+        background: rgba(217, 217, 217, 0);
+        border-radius: 20px;
+        border: 1px solid #333333;
+    }
+
+    .form-control {
+        width: 80%;
+        height: 39px;
+        background: rgba(218, 177, 177, 0);
+        border-radius: 10px;
+        border: 1px solid black;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+        padding: 5px 10px; 
+    }
+
+    .button-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .btn-submit {
+        width: 312px;
+        height: 31px;
+        background: #333333;
+        border-radius: 10px;
+        color: white;
+        font-size: 14px;
+        font-family: Poppins;
+        font-weight: 400;
+        text-align: center;
+        cursor: pointer;
+        margin-top: 35%;
+    }
+
+    .form-control:focus::placeholder {
+        color: transparent;
+    }
+</style>

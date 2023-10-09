@@ -1,0 +1,44 @@
+﻿@page
+@model WebApp.Pages.HomePageModel
+@{
+    ViewData["Title"] = "Wedding Decor Rental";
+}
+
+<div class="container">
+    <header>
+        <h1>Welcome to Our Wedding Decor Rental Service</h1>
+        <p>Your One-Stop Shop for Beautiful Wedding Decor</p>
+    </header>
+
+    <section>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>About Us</h2>
+                <p>We specialize in providing exquisite wedding decorations to make your special day even more magical. Our team is dedicated to creating a charming and romantic atmosphere that will leave a lasting impression.</p>
+                <a class="btn btn-primary" href="/about">Learn More</a>
+            </div>
+            <div class="col-md-6">
+                <img src="/images/about-image.jpg" alt="About Us Image" class="img-fluid">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="/images/decor-image.jpg" alt="Decor Image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h2>Our Decorations</h2>
+                <p>Explore our stunning collection of wedding decorations, including elegant centerpieces, decorative arches, flower arrangements, and more. Create the wedding of your dreams with our beautiful decor options.</p>
+                <a class="btn btn-primary" href="/decorations">View Decorations</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to inquire about our services, please don't hesitate to get in touch with us. We'd love to hear from you!</p>
+        <a class="btn btn-primary" href="/contact">Contact Us</a>
+    </section>
+</div>

@@ -1,0 +1,39 @@
+﻿@page
+@model WebApp.Pages.RentalItemOverviewModel
+@{
+}
+
+<div class="row">
+    <form method="get">
+        <div style="display: flex; flex-wrap: wrap; justify-content: flex-end;">
+            <label for="category-filter"></label>
+            <select id="category-filter" name="category">
+                <option value="">Category</option>
+                @foreach (var category in Model.Categories)
+                {
+                    <option value="@category">@category</option>
+                }
+            </select>
+
+            <button type="submit">Filter</button>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    @foreach (var rentalItem in Model.RentalItems)
+    {
+        <div class="col-sm-4">
+            <div class="card">
+                <a href="@Url.Page("./RentalItemDetail", new { ItemID = rentalItem.ItemID })">
+                    <img src="@rentalItem.ImageUrl" class="card-img-top" alt="@rentalItem.Name">
+                </a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@rentalItem.Name</h5>
+                <p class="card-text">@rentalItem.Description</p>
+                <p class="card-text">@rentalItem.RentalPrice</p>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,62 @@
+﻿@page "{ItemID:int}"
+@model WebApp.Pages.RentalItemDetailModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="@Model.RentalItem.ImageUrl" class="img-fluid" alt="@Model.RentalItem.Name">
+        </div>
+        <div class="col-sm-6">
+            <h2>@Model.RentalItem.Name</h2>
+            <p>@Model.RentalItem.Description</p>
+            <p>Price: $@Model.RentalItem.RentalPrice</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="startDate">Start Date:</label>
+                <input type="date" class="form-control form-control-sm" id="startDate" name="StartDate"
+                       min="@DateTime.Today.ToString("yyyy-MM-dd")" max="@DateTime.Today.AddMonths(1).ToString("yyyy-MM-dd")">
+            </div>
+            <div class="form-group">
+                <label for="endDate">End Date:</label>
+                <input type="date" class="form-control form-control-sm" id="endDate" name="EndDate"
+                       min="@DateTime.Today.ToString("yyyy-MM-dd")" max="@DateTime.Today.AddMonths(1).ToString("yyyy-MM-dd")">
+            </div>
+
+            @{ var disabledDates = Model.UnavailableDates.Select(date => date.ToString("yyyy-MM-dd")).ToList(); }
+            <script>
+    var disabledDates = @Html.Raw(Json.Serialize(disabledDates));
+    document.addEventListener("DOMContentLoaded", function () {
+        var startDateInput = document.getElementById("startDate");
+        var endDateInput = document.getElementById("endDate");
+
+        startDateInput.addEventListener("change", function () {
+            endDateInput.min = startDateInput.value;
+        });
+
+        endDateInput.addEventListener("change", function () {
+            startDateInput.max = endDateInput.value;
+        });
+
+        disabledDates.forEach(function (date) {
+            var dateInput = document.querySelector('input[type="date"][value="' + date + '"]');
+            if (dateInput) {
+                dateInput.disabled = true;
+            }
+        });
+    });
+            </script>
+
+
+
+            <button id="addToCartButton" class="btn btn-primary" onclick="addToCart()">Add to Cart</button>
+        </div>
+
+<script>
+    function addToCart() {
+
+    }
+</script>
